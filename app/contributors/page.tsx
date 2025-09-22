@@ -20,7 +20,7 @@ export default function ContributorsPage() {
                     <h2 className="text-3xl font-unbounded font-bold text-primary dark:text-background-light text-left mb-8 tracking-tight">
                         Top Contributors
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-3 sm:grid-cols-3 gap-8">
                         {topContributors.map((contributor, index) => (
                             <div
                                 key={contributor.id}
