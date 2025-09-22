@@ -8,7 +8,7 @@ export default function HomePage() {
     <div className="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
       <div className="mx-auto">
         <h1 className="text-4xl text-left font-unbounded md:text-7xl font-bold tracking-tighter text-primary dark:text-background-light mb-4 animate-fade-in-down">
-          An open-source dataset of Ghana's places and landmarks, built by the <span className="italic bg-gradient-to-b from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">Ghanaians</span>.
+          An open-source dataset of Ghana&#39;s places and landmarks, built by the <span className="italic bg-gradient-to-b from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">Ghanaians</span>.
         </h1>
         <p className="mt-6 text-lg max-w-4xl text-left font-sans text-primary/80 dark:text-background-light/80 animate-fade-in-up">
           Saji is a community-driven initiative to create a comprehensive and freely accessible dataset of geographical information for Ghana. Our goal is to empower developers, researchers, and enthusiasts with accurate and up-to-date data on places, landmarks, and geographical features across the country.

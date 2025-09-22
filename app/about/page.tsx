@@ -1,6 +1,5 @@
 import { Github, FileText, Users } from 'lucide-react'
 import Link from 'next/link'
-import { Layers3 } from 'lucide-react'
 
 export default function AboutPage() {
     const contributionWays = [
@@ -42,7 +41,7 @@ export default function AboutPage() {
                     Our Purpose
                 </h2>
                 <p className="text-base leading-7 font-sans text-primary/80 dark:text-background-light/80 text-left">
-                    Saji's primary purpose is to aggregate and curate diverse geospatial data sources for Ghana, ensuring data quality and consistency. We provide tools and documentation to facilitate data access, integration, and analysis. By fostering collaboration within the open-source community, we strive to continuously improve and expand the dataset's coverage and utility.
+                    Saji&#39;s primary purpose is to aggregate and curate diverse geospatial data sources for Ghana, ensuring data quality and consistency. We provide tools and documentation to facilitate data access, integration, and analysis. By fostering collaboration within the open-source community, we strive to continuously improve and expand the dataset&#39;s coverage and utility.
                 </p>
             </section>
 
@@ -53,7 +52,7 @@ export default function AboutPage() {
                     Contributing to Saji
                 </h2>
                 <p className="text-base leading-7 font-sans text-primary/80 dark:text-background-light/80 text-left mb-10">
-                    We welcome contributions from the community! Whether you're a data scientist, developer, or domain expert, your expertise can help enhance Saji. Here's how you can get involved:
+                    We welcome contributions from the community! Whether you&#39;re a data scientist, developer, or domain expert, your expertise can help enhance Saji. Here&#39;s how you can get involved:
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -80,7 +79,7 @@ export default function AboutPage() {
                 </div>
 
                 <p className="mt-10 text-base leading-7 font-sans text-primary/80 dark:text-background-light/80 text-left">
-                    For more detailed information, please refer to our contribution guidelines on GitHub. We appreciate your support in making Saji a valuable resource for Ghana's geospatial community.
+                    For more detailed information, please refer to our contribution guidelines on GitHub. We appreciate your support in making Saji a valuable resource for Ghana&#39;s geospatial community.
                 </p>
             </section>
         </div>
