@@ -1,103 +1,54 @@
-import Image from "next/image";
+import Image from 'next/image'
+import { topContributors } from '@/data/contributors'
 
-export default function Home() {
+export default function HomePage() {
+
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+      <div className="mx-auto">
+        <h1 className="text-4xl text-left font-unbounded md:text-7xl font-bold tracking-tighter text-primary dark:text-background-light mb-4 animate-fade-in-down">
+          An open-source dataset of Ghana's places and landmarks, built by the <span className="italic bg-gradient-to-b from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">Ghanaians</span>.
+        </h1>
+        <p className="mt-6 text-lg max-w-4xl text-left font-sans text-primary/80 dark:text-background-light/80 animate-fade-in-up">
+          Saji is a community-driven initiative to create a comprehensive and freely accessible dataset of geographical information for Ghana. Our goal is to empower developers, researchers, and enthusiasts with accurate and up-to-date data on places, landmarks, and geographical features across the country.
+        </p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="mt-20">
+        <h2 className="text-3xl text-left font-unbounded font-bold text-primary dark:text-background-light mb-10">Top Contributors</h2>
+        <div className="max-w-xl bg-background-light dark:bg-background-dark rounded-xl shadow-md overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {topContributors.map((contributor, index) => (
+              <div
+                key={contributor.id}
+                className="relative flex flex-col items-start group transform hover:-translate-y-2 transition-transform duration-300"
+              >
+                <div className="relative">
+                  <Image
+                    src={contributor.avatar}
+                    alt={contributor.name}
+                    className="w-32 h-32 rounded-full object-cover border-4 border-primary/10 dark:border-background-light/10 group-hover:border-primary/20 dark:group-hover:border-background-light/20 transition-colors"
+                    width={128}
+                    height={128}
+                  />
+                  <div className="absolute -top-2 -right-2 bg-primary text-background-light rounded-full w-8 h-8 flex items-center justify-center font-bold font-unbounded text-lg">
+                    {contributor.rank}
+                  </div>
+                </div>
+                <div className="mt-4 text-left">
+                  <p className="text-lg font-bold font-sans text-primary dark:text-background-light">
+                    {contributor.name}
+                  </p>
+                  <p className="text-sm font-unbounded text-primary/60 dark:text-background-light/60">
+                    {contributor.contributions.toLocaleString()} contributions
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
-  );
+  )
 }
