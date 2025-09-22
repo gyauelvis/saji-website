@@ -18,7 +18,7 @@ export default function HomePage() {
       <section className="mt-20">
         <h2 className="text-3xl text-left font-unbounded font-bold text-primary dark:text-background-light mb-10">Top Contributors</h2>
         <div className="max-w-xl bg-background-light dark:bg-background-dark rounded-xl shadow-md overflow-hidden">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-8">
             {topContributors.map((contributor, index) => (
               <div
                 key={contributor.id}
