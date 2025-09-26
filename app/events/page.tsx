@@ -24,36 +24,90 @@ export default function EventsPage() {
                         Upcoming
                     </h2>
                     {upcomingEvents.length > 0 ? (
-                        <div className="space-y-6">
+                        <div className="space-y-12">
                             {upcomingEvents.map((event, index) => (
-                                <div key={event.id} className="relative flex items-start gap-6">
+                                <div key={event.id} className="relative">
+                                    {/* Timeline line */}
                                     {index < upcomingEvents.length - 1 && (
-                                        <div className="absolute left-5 top-5 -ml-px h-full w-0.5 bg-primary/10 dark:bg-background-light/10"></div>
+                                        <div className="absolute left-5 top-12 -ml-px h-full w-0.5 bg-primary/10 dark:bg-background-light/10"></div>
                                     )}
-                                    <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-background-light dark:bg-background-dark border-2 border-primary/20 dark:border-background-light/20">
-                                        <Calendar className="w-5 h-5 text-primary dark:text-background-light" />
-                                    </div>
-                                    <div className="flex-grow rounded-lg border border-primary/10 dark:border-background-light/10 p-6 bg-background-light dark:bg-background-dark/50">
-                                        <h3 className="font-bold text-primary dark:text-background-light">
-                                            {event.title}
-                                        </h3>
-                                        <p className="mt-1 text-sm text-primary/60 dark:text-background-light/60">
-                                            {event.date} • {event.location}
-                                        </p>
-                                        {event.description && (
-                                            <p className="mt-2 text-sm text-primary/80 dark:text-background-light/80">
-                                                {event.description}
-                                            </p>
-                                        )}
-                                        {event.registrationLink && (
-                                            <Link
-                                                href={event.registrationLink}
-                                                className="mt-4 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold text-background-light transition-opacity hover:opacity-80"
-                                            >
-                                                <span>Register Now</span>
-                                                <ArrowRight className="ml-1.5 w-4 h-4" />
-                                            </Link>
-                                        )}
+
+                                    <div className="flex items-start gap-6">
+                                        {/* Timeline dot */}
+                                        <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-background-light dark:bg-background-dark border-2 border-primary/20 dark:border-background-light/20">
+                                            <Calendar className="w-5 h-5 text-primary dark:text-background-light" />
+                                        </div>
+
+                                        {/* Event card */}
+                                        <div className="flex-grow">
+                                            <div className="rounded-lg border border-primary/10 dark:border-background-light/10 bg-background-light dark:bg-background-dark/50 overflow-hidden">
+                                                {/* Event image */}
+                                                {event.image && (
+                                                    <div className="relative h-48 w-full">
+                                                        <Image
+                                                            src={event.image}
+                                                            alt={event.title}
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                    </div>
+                                                )}
+
+                                                {/* Event content */}
+                                                <div className="p-6">
+                                                    <div className="flex items-start justify-between">
+                                                        <div className="flex-grow">
+                                                            <h3 className="text-lg font-unbounded font-bold text-primary dark:text-background-light">
+                                                                {event.title}
+                                                            </h3>
+                                                            <p className="mt-1 text-sm text-primary/60 dark:text-background-light/60">
+                                                                {event.date} • {event.location}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Description */}
+                                                    {event.description && (
+                                                        <p className="mt-3 text-sm text-primary/80 dark:text-background-light/80 leading-relaxed">
+                                                            {event.description}
+                                                        </p>
+                                                    )}
+
+                                                    {/* Speakers */}
+                                                    {event.speakers && event.speakers.length > 0 && (
+                                                        <div className="mt-4">
+                                                            <div className="flex items-center gap-2 mb-2">
+                                                                <Mic className="w-4 h-4 text-primary/60 dark:text-background-light/60" />
+                                                                <span className="text-xs font-medium text-primary/60 dark:text-background-light/60 uppercase tracking-wider">
+                                                                    Speakers
+                                                                </span>
+                                                            </div>
+                                                            <div className="flex flex-wrap gap-1">
+                                                                {event.speakers.map((speaker, idx) => (
+                                                                    <span
+                                                                        key={idx}
+                                                                        className="inline-block px-2 py-1 text-xs bg-primary/5 dark:bg-background-light/5 rounded text-primary/70 dark:text-background-light/70"
+                                                                    >
+                                                                        {speaker}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {/* Registration button */}
+                                                    {event.registrationLink && (
+                                                        <Link
+                                                            href={event.registrationLink}
+                                                            className="mt-4 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold text-background-light transition-opacity hover:opacity-80"
+                                                        >
+                                                            <span>Register Now</span>
+                                                            <ArrowRight className="ml-1.5 w-4 h-4" />
+                                                        </Link>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -69,7 +123,6 @@ export default function EventsPage() {
                 </div>
 
                 {/* Past Events */}
-
                 <div>
                     <h2 className="mb-8 text-2xl font-bold tracking-tight text-primary dark:text-background-light">
                         Past Events
